@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ConsultorioOdontologico">
+  <ClassDiagramComponents>
+    <Class name="Paciente" package="paquete 1" visibility="public" xPosition="8.0" yPosition="9.0">
+      <Fields>
+        <Field name="nombrePaciente" type="String" visibility="private"/>
+        <Field name="apellidoPaciente" type="String" visibility="private"/>
+        <Field name="dniPaciente" type="Int" visibility="private"/>
+        <Field name="motivoConsulta" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombrePaciente"/>
+          <Argument type="String" name="apellidoPaciente"/>
+          <Argument type="int" name="dniPaciente"/>
+          <Argument type="String" name="motivoConsulta"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="setNombrePaciente" returnType="String" visibility="public"/>
+        <Method name="setApellidoOdontologo" returnType="String" visibility="public"/>
+        <Method name="setDniPaciente" returnType="Int" visibility="public"/>
+        <Method name="getDniPaciente" returnType="Int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Lista Paciente" package="paquete 1" visibility="public" isStatic="true" xPosition="8.0" yPosition="361.0">
+      <Fields>
+        <Field name="listaPaciente" type="ArrayList&lt;Paciente&gt;" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getPaciente" returnType="ArrayList" visibility="public" isStatic="true"/>
+        <Method name="setPaciente" returnType="paciente" visibility="public" isStatic="true">
+          <Argument type="paciente" name="nuevoPaciente"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Odontologo" package="paquete 1" visibility="public" xPosition="626.0" yPosition="-1.0">
+      <Fields>
+        <Field name="nombreOdontologo" type="String" visibility="private"/>
+        <Field name="apellidoOdontologo" type="String" visibility="private"/>
+        <Field name="matProfesional" type="int" visibility="private"/>
+        <Field name="fechaTurno" type="Calendar" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombreOdontologo"/>
+          <Argument type="String" name="apellidoOdontologo"/>
+          <Argument type="int" name="matProfesional"/>
+          <Argument type="Calendar" name="fechaTurno"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="setNombreOdontologo" returnType="String" visibility="public"/>
+        <Method name="setApellidoOdontologo" returnType="String" visibility="public"/>
+        <Method name="setMatProfesional" returnType="Int" visibility="public"/>
+        <Method name="getMatProfesional" returnType="Int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Lista Odontologos" package="paquete 1" visibility="public" isStatic="true" xPosition="904.0" yPosition="400.0">
+      <Fields>
+        <Field name="listaOdontologo" type="ArrayList&lt;Odontologo&gt;" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getProfesional" returnType="ArrayList" visibility="public" isStatic="true"/>
+        <Method name="setOdodntologo" returnType="Odontologo" visibility="public" isStatic="true">
+          <Argument type="Odontologo" name="nuevoOdontologo"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Turno" package="paquete 1" visibility="public" xPosition="410.0" yPosition="605.0">
+      <Fields>
+        <Field name="pacienteTurno" type="Paciente" visibility="private"/>
+        <Field name="odontologoTurno" type="Odontologo" visibility="private"/>
+        <Field name="fechaTurno" type="Calendar" visibility="private"/>
+        <Field name="motivoConsulta" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Paciente" name="pacienteTurno"/>
+          <Argument type="Odontologo" name="odontologoTurno"/>
+          <Argument type="Calendar" name="fechaTurno"/>
+          <Argument type="String" name="motivoConsulta"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setMotivoConsulta" returnType="String" visibility="public">
+          <Argument type="String" name="motivoConsulta"/>
+        </Method>
+        <Method name="getMotivoConsulta" returnType="String" visibility="public"/>
+        <Method name="setFechaTurno" returnType="Calendar" visibility="public">
+          <Argument type="int" name="mes"/>
+          <Argument type="int" name="dia"/>
+          <Argument type="int" name="hora"/>
+          <Argument type="int" name="minutos"/>
+        </Method>
+        <Method name="getFechaTurno" returnType="Calendar" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Lista Turno" package="" visibility="public" xPosition="8.0" yPosition="523.0">
+      <Fields>
+        <Field name="listaTurnos" type="ArrayList&lt;Turno&gt;" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getTurno" returnType="ArrayList" visibility="public" isStatic="true"/>
+        <Method name="setTurno" returnType="turno" visibility="public" isStatic="true">
+          <Argument type="turno" name="nuevoTruno"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Main" package="" visibility="public" xPosition="1110.0" yPosition="678.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="Compuesta por" source="paquete 1.Lista Paciente" target="paquete 1.Paciente" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <HasRelation name="Compuesta por " source="paquete 1.Lista Odontologos" target="paquete 1.Odontologo" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <HasRelation name="Conformada por" source="Lista Turno" target="paquete 1.Turno" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="Registra un truno de" source="paquete 1.Turno" target="paquete 1.Paciente" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="Registra un turno para" source="paquete 1.Turno" target="paquete 1.Odontologo" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

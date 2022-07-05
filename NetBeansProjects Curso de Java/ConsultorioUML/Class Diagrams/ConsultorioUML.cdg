@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ConsultorioUML">
+  <ClassDiagramComponents>
+    <Class name="Paciente" package=" paquete 1" visibility="public" xPosition="37.0" yPosition="30.0">
+      <Fields>
+        <Field name="dniPaciente" type="String" visibility="private"/>
+        <Field name="nombrePaciente" type="String" visibility="private"/>
+        <Field name="apellidoPaciente" type="String" visibility="private"/>
+        <Field name="edadPaciente" type="Int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="dniPaciente"/>
+          <Argument type="String" name="nombrePaciente"/>
+          <Argument type="String" name="apellidoPaciente"/>
+          <Argument type="Int" name="edadPaciente"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Profesional" package="paquete 1" visibility="public" xPosition="803.0" yPosition="377.0">
+      <Fields>
+        <Field name="dniProfesional" type="String" visibility="private"/>
+        <Field name="nombreProfesional" type="String" visibility="private"/>
+        <Field name="apellidoProfesional" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="dni"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+        </Constructor>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="setDniProfesional" returnType="String" visibility="public">
+          <Argument type="String" name="dni"/>
+        </Method>
+        <Method name="setNombreProfesional" returnType="String" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="setApellidoProfesional" returnType="String" visibility="public">
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="getDniProfesional" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ListaPacientes" package="paquete 1" visibility="public" xPosition="-2.0" yPosition="377.0">
+      <Fields>
+        <Field name="listaPacientes" type="Arraylist&lt;Paciente&gt;" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getPacientes" returnType="ArrayList" visibility="public" isStatic="true"/>
+        <Method name="setPacientes" returnType="Paciente" visibility="public" isStatic="true">
+          <Argument type="Paciente" name="nuevoPaciente"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ListaProfesional" package="paquete1" visibility="public" xPosition="731.0" yPosition="40.0">
+      <Fields>
+        <Field name="listaProfesionales" type="ArrayList&lt;Profesional&gt;" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getProfesionales" returnType="ArrayList" visibility="public" isStatic="true"/>
+        <Method name="setProfesionales" returnType="Profesional" visibility="public" isStatic="true">
+          <Argument type="Profesional" name="nevoProfesional"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Turno" package="paquete 1" visibility="public" xPosition="499.0" yPosition="742.0">
+      <Fields>
+        <Field name="pacienteTurno" type="Paciente" visibility="private"/>
+        <Field name="profesionalTurno" type="Profesional" visibility="private"/>
+        <Field name="fecaHoraTurno" type="Calendar" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Paciente" name="pacienteTurno"/>
+          <Argument type="Profesional" name="profesionalTurno"/>
+          <Argument type="Calendar" name="fechaHoraTurno"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="setTurno" returnType="int" visibility="public">
+          <Argument type="int" name="anio"/>
+          <Argument type="int" name="mes"/>
+          <Argument type="int" name="minutos"/>
+          <Argument type="int" name="segundos"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Lista Turno" package="" visibility="public" xPosition="16.0" yPosition="650.0">
+      <Fields>
+        <Field name="listaTurno" type="ArrayList&lt;turno&gt;" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getTurno" returnType="AarayList" visibility="public" isStatic="true"/>
+        <Method name="setTurno" returnType="Turno" visibility="public" isStatic="true">
+          <Argument type="Turno" name="nuevoTurno"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Main" package="" visibility="public" isStatic="true" xPosition="887.0" yPosition="695.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="Formada por" source="Lista Turno" target="paquete 1.Turno" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <HasRelation name="Formada por" source="paquete1.ListaProfesional" target="paquete 1.Profesional" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <HasRelation name="Registra turno para" source="paquete 1.Turno" target=" paquete 1.Paciente" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="Registra turno para" source="paquete 1.Turno" target="paquete 1.Profesional" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="Contiene" source="paquete 1.ListaPacientes" target=" paquete 1.Paciente" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
